@@ -241,14 +241,17 @@ class AllModel extends CI_Model {
 			}
 	}
 	function cekordbartender($idord){
-		$q= $this->db->select('stsd')->from('ord_d')->where('ord_d.idord',$idord)->get()->result();
-    		       // echo"<pre>";
-             //       print_r($q);
-             //       echo "<pre>";
-    		if($q){
-    			return array('status' => 200,'data' => $q);
-    		}else{
-    			return array('status' => 400,'data'=> $q);
-    		}
+		$this->db->trans_start();
+		$this->db->where('idord', $idord);
+		$this->db->where('stsd','0');
+		$this->db->delete('ord_d');
+			if($this->db->affected_rows() > 0){
+					$this->db->trans_complete();
+					return array('data'=>TRUE);
+				}else{
+					$this->db->trans_rollback();
+				 	return array('data'=>FALSE);
+				}
+				
 	}
 }
