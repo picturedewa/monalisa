@@ -240,4 +240,15 @@ class AllModel extends CI_Model {
 				return false;
 			}
 	}
+	function cekordbartender($idord){
+		$q= $this->db->select('stsd')->from('ord_d')->where('ord_d.idord',$idord)->get()->result();
+    		       // echo"<pre>";
+             //       print_r($q);
+             //       echo "<pre>";
+    		if($q){
+    			return array('status' => 200,'data' => $q);
+    		}else{
+    			return array('status' => 400,'data'=> $q);
+    		}
+	}
 }

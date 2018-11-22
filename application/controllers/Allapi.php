@@ -443,4 +443,35 @@ class Allapi extends API_Controller
 		$this->api_return($resp, '200');
 
 	}
+
+	public function cekordclosebartender(){
+		header("Access-Control-Allow-Origin:*");
+        header('Access-Control-Allow-Credentials: true');
+		
+    // Access-Control headers are received during OPTIONS requests
+    if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+ 
+        if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD']))
+            header("Access-Control-Allow-Methods: GET, POST, OPTIONS");         
+ 
+        if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']))
+            header("Access-Control-Allow-Headers: {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
+ 
+        exit(0);
+    }
+
+		$this->_APIConfig([
+			'methods' => ['POST'],
+			'key' => ['header'],
+			'data'=>[
+				'islogin'=>false,
+			]		    
+		]);
+					
+			$param=json_decode(file_get_contents('php://input'),TRUE);
+			$idord=$param['idord'];
+			$resp= $this->AllModel->cekordbartender($idord);
+		//return data 
+		$this->api_return($resp, '200');
+	}
  }
