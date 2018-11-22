@@ -242,7 +242,7 @@ class AllModel extends CI_Model {
 	}
 	function cekordbartender($idord){
 		$this->db->trans_start();
-		$this->db->where('idord', $idord);
+		$this->db->where('id', $idord);
 		$this->db->where('stsd','0');
 		$this->db->delete('ord_d');
 			if($this->db->affected_rows() > 0){
