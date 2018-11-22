@@ -60,7 +60,7 @@ class AllModel extends CI_Model {
 	}
 
 	function listprodord($noord){
-		$q= $this->db->select('ord_d.idord, ord_d.proid, product.namapro, product.unit, product.pic,ord_d.qty, ord_d.price, ord_d.total,ord_d.create_at')->from('ord_d')->join('product','ord_d.proid = product.proid','LEFT')->where('idord',$noord)->get()->result();
+		$q= $this->db->select('ord_d.id,ord_d.idord, ord_d.proid, product.namapro, product.unit, product.pic,ord_d.qty, ord_d.price, ord_d.total,ord_d.create_at')->from('ord_d')->join('product','ord_d.proid = product.proid','LEFT')->where('idord',$noord)->get()->result();
     		       // echo"<pre>";
              //       print_r($q);
              //       echo "<pre>";
