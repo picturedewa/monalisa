@@ -25,6 +25,7 @@ class AllModel extends CI_Model {
 		// $id = $this->input->post('txtId');
 		//update table meja
 			$this->db->where('nama', $namameja);
+			$this->db->where('tk','0');
 			$this->db->update('meja',array('tk' => '1'));
 			if($this->db->affected_rows() > 0){
 				//update table ord_h
