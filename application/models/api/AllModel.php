@@ -132,14 +132,18 @@ class AllModel extends CI_Model {
 
 	}
 
-	function loadproduct(){
+	function loadproduct($datagol){
 
-				$y= $this->db->select('proid,namapro,unit,price,pic')->from('product')->join('stock','product.proid=stock.kodepro')->where('aktif','1')->where('sisa >','0')->get()->result();
-				$z= $this->db->select('proid,namapro,unit,price,pic')->from('product')->get()->result();
+			if($datagol!='4'){
+				$q= $this->db->select('proid,namapro,unit,price,pic')->from('product')->join('stock','product.proid=stock.kodepro')->where('aktif','1')->where('sisa >','0')->where('gol',$datagol)->get()->result();
+			}else{
+				$q= $this->db->select('proid,namapro,unit,price,pic')->from('product')->join('stock','product.proid=stock.kodepro')->where('aktif','1')->where('gol',$datagol)->get()->result();
+			}
+				// $z= $this->db->select('proid,namapro,unit,price,pic')->from('product')->where('gol',$datagol)->where()->get()->result();
     		 // 	  echo"<pre>";
              //       print_r($q);
              //       echo "<pre>"
-				$q = array_merge($y, $z);
+				// $q = array_merge($y, $z);
     		if($q){
     			return array('status' => 200,'data' => $q);
     		}else{

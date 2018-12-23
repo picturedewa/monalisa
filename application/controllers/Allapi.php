@@ -255,7 +255,8 @@ class Allapi extends API_Controller
 		]);
 
 				$param=json_decode(file_get_contents('php://input'),TRUE);
-				$resp= $this->AllModel->loadproduct();
+				$datagol=$param['gol'];
+				$resp= $this->AllModel->loadproduct($datagol);
 				
 		//return data 
 		$this->api_return($resp, '200');
