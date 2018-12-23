@@ -134,11 +134,12 @@ class AllModel extends CI_Model {
 
 	function loadproduct(){
 
-
-				$q= $this->db->select('proid,namapro,unit,price,pic')->from('product')->join('stock','product.proid=stock.kodepro','LEFT')->where('aktif','1')->where('sisa >','0')->get()->result();
-    		       // echo"<pre>";
+				$y= $this->db->select('proid,namapro,unit,price,pic')->from('product')->join('stock','product.proid=stock.kodepro')->where('aktif','1')->where('sisa >','0')->get()->result();
+				$z= $this->db->select('proid,namapro,unit,price,pic')->from('product')->get()->result();
+    		 // 	  echo"<pre>";
              //       print_r($q);
-             //       echo "<pre>";
+             //       echo "<pre>"
+				$q = array_merge($y, $z);
     		if($q){
     			return array('status' => 200,'data' => $q);
     		}else{
