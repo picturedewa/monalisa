@@ -133,7 +133,9 @@ class AllModel extends CI_Model {
 	}
 
 	function loadproduct(){
-				$q= $this->db->select('proid,namapro,unit,price,pic')->from('product')->where('aktif','1')->get()->result();
+
+
+				$q= $this->db->select('proid,namapro,unit,price,pic')->from('product')->join('stock','product.proid=stock.kodepro','LEFT')->where('aktif','1')->where('sisa >','0')->get()->result();
     		       // echo"<pre>";
              //       print_r($q);
              //       echo "<pre>";
