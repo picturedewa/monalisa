@@ -137,7 +137,7 @@ class AllModel extends CI_Model {
 			if($datagol!='4'){
 				$q= $this->db->select('proid,namapro,unit,price,pic')->from('product')->join('stock','product.proid=stock.kodepro')->where('aktif','1')->where('sisa >','0')->where('gol',$datagol)->get()->result();
 			}else{
-				$q= $this->db->select('proid,namapro,unit,price,pic')->from('product')->join('stock','product.proid=stock.kodepro')->where('aktif','1')->where('gol',$datagol)->get()->result();
+				$q= $this->db->select('proid,namapro,unit,price,pic')->from('product')->where('aktif','1')->where('gol',$datagol)->get()->result();
 			}
 				// $z= $this->db->select('proid,namapro,unit,price,pic')->from('product')->where('gol',$datagol)->where()->get()->result();
     		 // 	  echo"<pre>";
