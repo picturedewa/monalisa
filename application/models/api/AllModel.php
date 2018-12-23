@@ -258,4 +258,16 @@ class AllModel extends CI_Model {
 				}
 				
 	}
+
+	function progollist(){
+		$q= $this->db->select('nama,picture')->from('gol')->where('aktif','1')->get()->result();
+    		       // echo"<pre>";
+             //       print_r($q);
+             //       echo "<pre>";
+    		if($q){
+    			return array('status' => 200,'data' => $q);
+    		}else{
+    			return array('status' => 400,'data'=> $q);
+    		}
+	}
 }

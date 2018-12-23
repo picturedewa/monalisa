@@ -84,3 +84,4 @@ $route['api/delwaiters']='allapi/delwaiters';
 $route['api/loadavaliablewaiters']='allapi/loadavaliablewaiters';
 $route['api/addwaiters']='allapi/addwaiters';
 $route['api/delitemord']='allapi/cekordclosebartender';
+$route['api/listgol']='allapi/progollist';
