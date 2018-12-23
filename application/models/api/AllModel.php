@@ -260,7 +260,7 @@ class AllModel extends CI_Model {
 	}
 
 	function progollist(){
-		$q= $this->db->select('nama,picture')->from('gol')->where('aktif','1')->get()->result();
+		$q= $this->db->select('id,nama,picture')->from('gol')->where('aktif','1')->get()->result();
     		       // echo"<pre>";
              //       print_r($q);
              //       echo "<pre>";
