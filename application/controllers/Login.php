@@ -263,7 +263,8 @@ class Login extends API_Controller
 						'alamat' => $param['alamat'],
 						'tel' => $param['tel'],
 						'nama' => $param['nama'],
-						'id' =>$param['iduser']
+						'id' =>$param['iduser'],
+						'gol' =>'1'
 					);
 
 										
