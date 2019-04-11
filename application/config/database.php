@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'monalisacafe.xyz',
-	'username' => 'monalisa_dewa2301',
-	'password' => 'anakdewa@2301',
-	'database' => 'monalisa_apps',
+	'hostname' => 'yourhostname',
+	'username' => 'username',
+	'password' => 'passwrod',
+	'database' => 'database',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
